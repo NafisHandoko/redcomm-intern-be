@@ -11,7 +11,6 @@ class CommentController extends Controller
     //
     public function index(Request $request)
     {
-        // return Comment::all();
         $data = Comment::paginate($request->results);
         return response()->json($data, 200);
     }
@@ -22,8 +21,5 @@ class CommentController extends Controller
             ->orWhere('comment', 'LIKE', '%' . $request->search . '%')
             ->get();
         return response()->json($data, 200);
-        // return response()->json([
-        //     'res' => $request->search
-        // ]);
     }
 }
