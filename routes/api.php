@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/comment', [CommentController::class, 'index'])->name('comment')->middleware('guest');
-Route::get('/comment/search', [CommentController::class, 'search'])->name('search')->middleware('guest');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
