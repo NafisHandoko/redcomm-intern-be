@@ -8,7 +8,7 @@ use Illuminate\Http\Response;
 
 class CommentController extends Controller
 {
-    //
+    // main function to handle all requests including search and pagination functionality
     public function index(Request $request)
     {
         $data = Comment::where('username', 'LIKE', '%' . $request->search . '%')
