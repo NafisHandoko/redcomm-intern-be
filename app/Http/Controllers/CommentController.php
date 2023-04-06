@@ -11,7 +11,9 @@ class CommentController extends Controller
     //
     public function index(Request $request)
     {
-        $data = Comment::paginate($request->results);
+        $data = Comment::where('username', 'LIKE', '%' . $request->search . '%')
+        ->orWhere('comment', 'LIKE', '%' . $request->search . '%')
+        ->paginate($request->results);
         return response()->json($data, 200);
     }
 
