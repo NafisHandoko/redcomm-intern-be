@@ -2,9 +2,11 @@
 
 namespace Tests;
 
-use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use Laravel\BrowserKitTesting\TestCase as BaseTestCase; // ubah class parent
 
 abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
+
+    public $baseUrl = 'http://localhost:8000'; // tambah $baseUrl
 }
